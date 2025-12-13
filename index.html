@@ -219,7 +219,7 @@
     <section class="section section-about" id="about">
       <div class="page">
         <h2 class="section-title">О нас</h2>
-        <p class="section-text">sound+vision делает музыку фоном, к которому хочется возвращаться, а не шумом, который приходится терпеть.</p>
+        <p class="section-text"><span class="title-font">sound+vision</span> делает музыку фоном, к которому хочется возвращаться, а не шумом, который приходится терпеть.</p>
         <p class="section-text">Команда — продюсеры, диджеи и разработчики, которым одинаково важны и звук, и интерфейс, поэтому сервис собирается как хороший сет: без лишнего, но с правильными деталями.</p>
         <p class="section-text">Мы экспериментируем с алгоритмическим микшированием, кураторскими плейлистами и социальными функциями, чтобы упростить главный сценарий - включаете и слушаете часами, открывая новую музыку, а не воюя с рекомендациями.</p>
       </div>
@@ -616,41 +616,73 @@ window.addEventListener('resize', () => {
 
       renderCurator();
     }
-	  // === АУДИО: СЛУЧАЙНЫЙ ТРЕК + АВТОЗАПУСК ===
+	 // === АУДИО: ПЛЕЙЛИСТ + ПЛАВНОЕ ЗАТУХАНИЕ ===
 {
   const myAudioEl = document.getElementById('bgAudio');
   const myTargetSection = document.querySelector('.section-benefits-sticky');
   let myAudioUnlocked = false;
+  let fadeInterval = null; // Таймер для затухания
 
-  // --- 🎵 ТВОЙ ПЛЕЙЛИСТ 🎵 ---
-  // Просто напиши названия файлов в кавычках через запятую
+  // --- 🎵 ПЛЕЙЛИСТ 🎵 ---
   const playlist = [
     'audio/track1.mp3',
     'audio/track2.mp3',
-    'audio/track3.mp3' 
+    'audio/track3.mp3'
   ];
 
-  // Эта магия выбирает случайный трек при каждой загрузке страницы
+  // Выбираем случайный трек
   if (myAudioEl && playlist.length > 0) {
       const randomIndex = Math.floor(Math.random() * playlist.length);
       myAudioEl.src = playlist[randomIndex]; 
-      console.log('Выбран трек:', playlist[randomIndex]);
   }
 
-  // --- ДАЛЬШЕ СТАРАЯ ПРОВЕРЕННАЯ ЛОГИКА ---
-  
-  // Функция тихой разблокировки
+  // --- ФУНКЦИЯ ПЛАВНОГО УХОДА (FADE OUT) ---
+  function smoothStop() {
+    // Если уже идет затухание, не начинаем новое
+    if (fadeInterval) return;
+
+    // Запускаем таймер: каждые 100мс убавляем громкость
+    fadeInterval = setInterval(() => {
+      // (Проверка на всякий случай, если браузер не поддерживает volume)
+      if (myAudioEl.volume > 0.1) {
+        myAudioEl.volume -= 0.1; // Убавляем на 10%
+      } else {
+        // Когда совсем тихо — стоп
+        clearInterval(fadeInterval);
+        fadeInterval = null;
+        myAudioEl.pause();
+        myAudioEl.volume = 1.0; // Возвращаем громкость для следующего раза
+        myAudioEl.currentTime = 0; // Перематываем в начало (если нужно)
+      }
+    }, 100); // 10 шагов по 100мс = 1 секунда затухания
+  }
+
+  // --- ФУНКЦИЯ БЫСТРОГО СТАРТА ---
+  function quickPlay() {
+    // Если шло затухание, отменяем его
+    if (fadeInterval) {
+        clearInterval(fadeInterval);
+        fadeInterval = null;
+    }
+    myAudioEl.volume = 1.0; // Сразу максимальная громкость
+    
+    // Стандартная логика запуска
+    if (myAudioUnlocked) {
+        myAudioEl.play().catch(e => console.log('Audio error:', e));
+    } else {
+        myAudioEl.play().then(() => { myAudioUnlocked = true; }).catch(() => {});
+    }
+  }
+
+  // --- РАЗБЛОКИРОВКА (СТАРАЯ ЛОГИКА) ---
   function tryUnlock() {
     if (myAudioUnlocked || !myAudioEl) return;
-    
-    // Пытаемся быстро включить и выключить
     const p = myAudioEl.play();
     if (p !== undefined) {
       p.then(() => {
         myAudioEl.pause();
-        myAudioEl.currentTime = 0; // Отмотать в начало
+        myAudioEl.currentTime = 0;
         myAudioUnlocked = true;
-        // Убираем слушатели
         ['click', 'touchstart', 'keydown', 'wheel'].forEach(evt => 
           document.removeEventListener(evt, tryUnlock)
         );
@@ -658,25 +690,18 @@ window.addEventListener('resize', () => {
     }
   }
 
-  // Вешаем слушатели "первого касания"
   ['click', 'touchstart', 'keydown', 'wheel'].forEach(evt => 
     document.addEventListener(evt, tryUnlock, { passive: true, once: true })
   );
 
-  // Следим за секцией
+  // --- НАБЛЮДАТЕЛЬ ---
   if (myTargetSection && myAudioEl) {
     const audioObserver = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) {
-        // Если видим секцию — играем
-        if (myAudioUnlocked) {
-           myAudioEl.play().catch(e => console.log('Audio error:', e));
-        } else {
-           myAudioEl.play().then(() => { myAudioUnlocked = true; }).catch(() => {});
-        }
+        quickPlay(); // Включаем (с отменой затухания)
       } else {
-        // Не видим — пауза
-        myAudioEl.pause();
+        smoothStop(); // Плавный стоп
       }
     }, { threshold: 0.25 });
 
@@ -684,6 +709,47 @@ window.addEventListener('resize', () => {
   }
 }
 // === КОНЕЦ ===
+	  // === СВАЙПЫ ДЛЯ КУРАТОРОВ (Touch) ===
+{
+  const curatorCard = document.querySelector('.curator-card');
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (curatorCard) {
+    // 1. Коснулись экрана — запомнили точку
+    curatorCard.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    // 2. Отпустили палец — запомнили точку и проверили
+    curatorCard.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    // Вычисляем длину свайпа
+    const swipeDistance = touchEndX - touchStartX;
+    const minSwipe = 50; // Минимальная длина свайпа (чтобы не срабатывало от случайных тапов)
+
+    // Если свайпнули ВЛЕВО (палец пошел влево <--) -> Следующий слайд
+    if (swipeDistance < -minSwipe) {
+       // Вызываем твою существующую функцию для кнопки "Вперед"
+       // (Предполагаю, что у тебя есть listener на #curatorNext)
+       document.getElementById('curatorNext')?.click(); 
+    }
+
+    // Если свайпнули ВПРАВО (палец пошел вправо -->) -> Предыдущий слайд
+    if (swipeDistance > minSwipe) {
+       // Вызываем кнопку "Назад"
+       document.getElementById('curatorPrev')?.click();
+    }
+  }
+}
+// === КОНЕЦ ===
+
+
 
 
 
