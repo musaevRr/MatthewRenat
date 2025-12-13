@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+	<link rel="icon" type="image/png" href="images/s+v.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sound+vision</title>
@@ -615,22 +616,41 @@ window.addEventListener('resize', () => {
 
       renderCurator();
     }
-	  // === ВЕРСИЯ, КОТОРАЯ РАБОТАЕТ (БЕЗ ГРОМКОСТИ) ===
+	  // === АУДИО: СЛУЧАЙНЫЙ ТРЕК + АВТОЗАПУСК ===
 {
   const myAudioEl = document.getElementById('bgAudio');
   const myTargetSection = document.querySelector('.section-benefits-sticky');
   let myAudioUnlocked = false;
 
+  // --- 🎵 ТВОЙ ПЛЕЙЛИСТ 🎵 ---
+  // Просто напиши названия файлов в кавычках через запятую
+  const playlist = [
+    'audio/track1.mp3',
+    'audio/track2.mp3',
+    'audio/track3.mp3' 
+  ];
+
+  // Эта магия выбирает случайный трек при каждой загрузке страницы
+  if (myAudioEl && playlist.length > 0) {
+      const randomIndex = Math.floor(Math.random() * playlist.length);
+      myAudioEl.src = playlist[randomIndex]; 
+      console.log('Выбран трек:', playlist[randomIndex]);
+  }
+
+  // --- ДАЛЬШЕ СТАРАЯ ПРОВЕРЕННАЯ ЛОГИКА ---
+  
   // Функция тихой разблокировки
   function tryUnlock() {
     if (myAudioUnlocked || !myAudioEl) return;
     
+    // Пытаемся быстро включить и выключить
     const p = myAudioEl.play();
     if (p !== undefined) {
       p.then(() => {
         myAudioEl.pause();
-        myAudioEl.currentTime = 0;
+        myAudioEl.currentTime = 0; // Отмотать в начало
         myAudioUnlocked = true;
+        // Убираем слушатели
         ['click', 'touchstart', 'keydown', 'wheel'].forEach(evt => 
           document.removeEventListener(evt, tryUnlock)
         );
@@ -638,22 +658,24 @@ window.addEventListener('resize', () => {
     }
   }
 
-  // Вешаем слушатели
+  // Вешаем слушатели "первого касания"
   ['click', 'touchstart', 'keydown', 'wheel'].forEach(evt => 
     document.addEventListener(evt, tryUnlock, { passive: true, once: true })
   );
 
-  // Наблюдатель
+  // Следим за секцией
   if (myTargetSection && myAudioEl) {
     const audioObserver = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) {
+        // Если видим секцию — играем
         if (myAudioUnlocked) {
            myAudioEl.play().catch(e => console.log('Audio error:', e));
         } else {
            myAudioEl.play().then(() => { myAudioUnlocked = true; }).catch(() => {});
         }
       } else {
+        // Не видим — пауза
         myAudioEl.pause();
       }
     }, { threshold: 0.25 });
@@ -664,8 +686,8 @@ window.addEventListener('resize', () => {
 // === КОНЕЦ ===
 
 
+
   </script>
 </body>
 </html>
-
 
