@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sound+vision</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+  <!-- ВАЖНО: подключаем style.css один раз -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="header-bar">
+      <div class="header-bar__logo">s+v</div>
+      <nav class="header-bar__nav">
+        <a href="#curators">Кураторы</a>
+        <a href="#stats">Статистика</a>
+        <a href="#benefits-header">Преимущества</a>
+        <a href="#cta">К делу</a>
+        <a href="#about">О нас</a>
+      </nav>
+    </div>
+
+    <div class="header-inner">
+      <div class="header-genres-wrapper">
+        <div class="header-genres header-genres--top">
+          <span class="genre-tag">RnB</span><span class="genre-tag">EDM</span><span class="genre-tag">Фанк</span><span class="genre-tag">IDM</span><span class="genre-tag">Металл</span><span class="genre-tag">Нойз</span><span class="genre-tag">Блюз</span><span class="genre-tag">Джаз</span><span class="genre-tag">Диско</span><span class="genre-tag">Эмбиент</span><span class="genre-tag">Фолк</span><span class="genre-tag">Хип-хоп</span>
+          <span class="genre-tag">RnB</span><span class="genre-tag">EDM</span><span class="genre-tag">Фанк</span><span class="genre-tag">IDM</span><span class="genre-tag">Металл</span><span class="genre-tag">Нойз</span><span class="genre-tag">Блюз</span><span class="genre-tag">Джаз</span><span class="genre-tag">Диско</span><span class="genre-tag">Эмбиент</span><span class="genre-tag">Фолк</span><span class="genre-tag">Хип-хоп</span>
+        </div>
+      </div>
+
+      <div class="header-hero">
+        <h1 class="header-hero__logo">sound+vision</h1>
+        <a href="#cta" class="header-hero__badge">Зарегистрироваться</a>
+        <p class="header-hero__subtitle">Раскройте музыку по-новому</p>
+      </div>
+
+      <div class="header-genres-wrapper">
+        <div class="header-genres header-genres--bottom">
+          <span class="genre-tag">IDM</span><span class="genre-tag">RnB</span><span class="genre-tag">Джаз</span><span class="genre-tag">Рок</span><span class="genre-tag">Блюз</span><span class="genre-tag">IDM</span><span class="genre-tag">Фолк</span><span class="genre-tag">Эмбиент</span><span class="genre-tag">Хип-хоп</span><span class="genre-tag">Нойз</span><span class="genre-tag">Металл</span><span class="genre-tag">Фанк</span><span class="genre-tag">Диско</span>
+          <span class="genre-tag">IDM</span><span class="genre-tag">RnB</span><span class="genre-tag">Джаз</span><span class="genre-tag">Рок</span><span class="genre-tag">Блюз</span><span class="genre-tag">IDM</span><span class="genre-tag">Фолк</span><span class="genre-tag">Эмбиент</span><span class="genre-tag">Хип-хоп</span><span class="genre-tag">Нойз</span><span class="genre-tag">Металл</span><span class="genre-tag">Фанк</span><span class="genre-tag">Диско</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- ЧТО ТАКОЕ -->
+    <section class="section section-what" id="what">
+      <div class="page">
+        <h2 class="section-title">Что такое <span class="title-font">sound+vision?</span></h2>
+        <div class="text-block">
+          <p><span class="title-font">sound+vision</span> - музыкальное приложение для тех, кто включает музыку надолго и не хочет каждые пару минут пролистывать плейлист из странных рекомендаций.</p>
+
+          <p>Вместо разрозненных треков вы получаете цельный поток: приложение превращает плейлисты в выстроенные миксы с плавными переходами, чтобы музыка звучала как одна история, а не случайный набор.</p>
+          <p>Умные алгоритмы анализируют темп, тональность, динамику, поэтому следующий трек не выбивается из контекста, а естественно продолжает выбранное состояние.</p>
+          <p>За подборками стоят живые люди: музыканты, критики и диджеи, которые понимают музыку изнутри и собирают из треков понятные эмоциональные маршруты.</p>
+          <p>Вы открываете приложение, нажимаете play - дальше можно не вмешиваться. Музыка не скатывается в скучную ротацию и не вызывает апатию: поток остаётся живым, собранным и достаточно разнообразным, чтобы в каждом прослушивании находить что‑то новое.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- КУРАТОРЫ -->
+    <section class="section section-curators" id="curators">
+      <div class="page">
+        <h2 class="section-title">Кураторы</h2>
+        <p class="section-text">
+          Наши кураторы не просто «дают имя» плейлисту - они постоянно собирают своё виденье. У каждого есть свой угол обзора, от соула до экспериментального хип‑хопа.
+        </p>
+
+        <div class="curator-card">
+          <button class="curator-arrow" id="curatorPrev" aria-label="Предыдущий куратор">
+            <img src="images/strelka.png" alt="" />
+          </button>
+
+          <div class="curator-content">
+            <div class="curator-info">
+              <h3 class="curator-name" id="curatorName">Брайан Ино</h3>
+              <p class="curator-desc" id="curatorDesc">Британский композитор, считается одним из основателей жанра эмбиент.</p>
+            </div>
+            <div class="curator-photo" id="curatorPhoto" style="background-image: url('images/brian.png');"></div>
+          </div>
+
+          <button class="curator-arrow" id="curatorNext" aria-label="Следующий куратор">
+            <img src="images/strelka.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- СТАТИСТИКА -->
+    <section class="section section-stats" id="stats">
+      <div class="page stats-container">
+        <h2 class="section-title">Статистика</h2>
+
+        <div class="stats-row">
+          <div class="stats-num"><img src="images/37.png" alt="37%" class="stats-num-img" /></div>
+          <div class="stats-info">
+            <h3 class="stats-caption">Слушают дольше</h3>
+            <p class="stats-desc">Плейлисты в формате миксов люди держат включёнными в среднем на 37% дольше, чем обычные списки треков: меньше моментов, когда хочется нажать паузу.</p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stats-num"><img src="images/42.png" alt="42%" class="stats-num-img" /></div>
+          <div class="stats-info">
+            <h3 class="stats-caption">Меньше пропусков</h3>
+            <p class="stats-desc">Количество пропусков треков в таких плейлистах ниже на 42% — за счёт плавных переходов слушатели чаще дослушивают до конца и дают шанс новым артистам.</p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stats-num"><img src="images/65.png" alt="65%" class="stats-num-img" /></div>
+          <div class="stats-info">
+            <h3 class="stats-caption">Больше открытий</h3>
+            <p class="stats-desc">65% добавлений в «избранное» приходится на треки, которые пользователи услышали впервые именно в кураторских подборках, а не искали вручную.</p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stats-num"><img src="images/70.png" alt="70%" class="stats-num-img" /></div>
+          <div class="stats-info">
+            <h3 class="stats-caption">Сила кураторов</h3>
+            <p class="stats-desc">У активных слушателей в среднем 4 избранных куратора, и до 70% новой музыки попадает в медиатеку именно из их плейлистов.</p>
+          </div>
+        </div>
+
+        <div class="stats-arrow-block">
+          <img src="images/vverx.png" alt="" class="stats-arrow-img" />
+          <h3 class="stats-arrow-title">Активность прямо сейчас</h3>
+          <p class="stats-footer-text">
+            Сегодня в <span class="title-font">sound+vision</span> скачали и добавили в личные коллекции 14 327 треков.
+            За этот же день 9 084 человека включили хотя бы один плейлист куратора
+            и дослушали его минимум до середины.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЗАГОЛОВОК ПРЕИМУЩЕСТВА -->
+    <section class="section section-benefits-header" id="benefits-header">
+      <div class="page">
+        <h2 class="section-title intro-title-static">Преимущества</h2>
+      </div>
+    </section>
+
+    <!-- СЛАЙДЕР С ЖИВЫМ ФОНОМ -->
+    <section class="section-benefits-sticky" id="benefits">
+      <canvas id="waveCanvas"></canvas>
+      <audio id="bgAudio" src="audio/preview.mp3" loop></audio>
+
+      <div class="sticky-wrapper">
+        <div class="horizontal-track">
+          <div class="benefit-fullscreen-slide">
+            <div class="slide-content-wrapper">
+              <div class="slide-num-corner">1</div>
+              <div class="slide-text-bottom">
+                <h3>Алгоритмическое микширование вместо простого плейлиста</h3>
+                <p>Наш алгоритм не просто ставит треки подряд, а сводит их как диджей: подстраивает уровни, темп и точки входа, чтобы переходы были плавными и логичными. В результате один плейлист звучит как цельный сет — без провалов по настроению и ощущения, что трек «выпал» из контекста.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-fullscreen-slide">
+            <div class="slide-content-wrapper">
+              <div class="slide-num-corner">2</div>
+              <div class="slide-text-bottom">
+                <h3>Без пауз и тишины</h3>
+                <p>Каталог не делится по странам: если трек существует в сервисе, вы можете его включить без VPN, танцев с бубном и сообщений «трек недоступен в вашем регионе». Это позволяет спокойно слушать локальные сцены других стран, редкие релизы и независимые лейблы, которые в обычных сервисах часто остаются за пределами вашей ленты.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="benefit-fullscreen-slide">
+            <div class="slide-content-wrapper">
+              <div class="slide-num-corner">3</div>
+              <div class="slide-text-bottom">
+                <h3>Живой поток</h3>
+                <p>Любой плейлист — это потенциальный повод поделиться: своим миксом, подборкой куратора или найденным фрешменом. Можно отправить ссылку другу, поделиться плейлистом в своём профиле и на основе чужих миксов строить свои — сервис запоминает такие связи и помогает находить людей с похожим вкусом.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- К ДЕЛУ -->
+    <section class="section section-cta" id="cta">
+      <div class="page cta-page">
+        <h2 class="section-title cta-title">К делу</h2>
+        <p class="section-text cta-subtitle">Готовы послушать свой первый микс?</p>
+        <p class="section-text cta-desc">
+          Скачайте <span class="title-font">sound+vision</span>, включите любой кураторский плейлист или соберите свой — алгоритм сам превратит его в цельный микс без пауз и провалов по настроению.
+        </p>
+
+        <div class="cta-center">
+          <a href="#contacts" class="btn-mega">Зарегистрироваться</a>
+
+          <div class="cta-stores">
+            <a href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+              <img src="GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" class="store-img" />
+            </a>
+
+            <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+              <img src="Download_on_the_App_Store_RGB_blk.svg" alt="Download on the App Store" class="store-img" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- О НАС -->
+    <section class="section section-about" id="about">
+      <div class="page">
+        <h2 class="section-title">О нас</h2>
+        <p class="section-text">sound+vision делает музыку фоном, к которому хочется возвращаться, а не шумом, который приходится терпеть.</p>
+        <p class="section-text">Команда — продюсеры, диджеи и разработчики, которым одинаково важны и звук, и интерфейс, поэтому сервис собирается как хороший сет: без лишнего, но с правильными деталями.</p>
+        <p class="section-text">Мы экспериментируем с алгоритмическим микшированием, кураторскими плейлистами и социальными функциями, чтобы упростить главный сценарий - включаете и слушаете часами, открывая новую музыку, а не воюя с рекомендациями.</p>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section section-contacts" id="contacts">
+      <div class="page">
+        <h2 class="section-title">Наши контакты</h2>
+
+        <div class="contacts-grid">
+          <div class="contacts-col">
+            <div class="social-row">
+              <img src="images/mail.svg" class="mini-icon" alt="" />
+              <a href="mailto:help@soundvision.ru">help@soundvision.ru</a>
+            </div>
+
+            <div class="social-row">
+              <img src="images/phone.svg" class="mini-icon" alt="" />
+              <a href="tel:+79520525252">+7 (952) 052-52-52</a>
+            </div>
+
+            <div class="social-row">
+              <img src="images/vk.svg" class="mini-icon" alt="" />
+              <a href="https://vk.com/soundvision" target="_blank" rel="noopener noreferrer">vk.com/soundvision</a>
+            </div>
+          </div>
+
+          <div class="contacts-col contacts-col--right">
+            <div class="social-row">
+              <img src="images/insta.svg" class="mini-icon" alt="" />
+              <a href="https://instagram.com/soundvision.app" target="_blank" rel="noopener noreferrer">@soundvision.app</a>
+            </div>
+
+            <div class="social-row">
+              <img src="images/tg.svg" class="mini-icon mini-icon--tg" alt="" />
+              <a href="https://t.me/soundvision" target="_blank" rel="noopener noreferrer">t.me/soundvision</a>
+            </div>
+
+            <div class="social-row">
+              <img src="images/twitter.svg" class="mini-icon" alt="" />
+              <a href="https://x.com/soundvision_app" target="_blank" rel="noopener noreferrer">@soundvision.app</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+	  
+	  const BP_MOBILE = 768;
+const BP_COMPACT = 1280; // <=1280 включаем компактный горизонтальный режим
+
+// ...
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth <= BP_MOBILE) {
+    track.style.transform = 'none';
+    return;
+  }
+
+  // остальная логика scroll остаётся
+});
+
+// ...
+
+function animateSlides() {
+  if (window.innerWidth > BP_MOBILE) {
+    currentPercentage += (targetPercentage - currentPercentage) * easing;
+
+    // ВАЖНО: на 769–1280 считаем "видимую ширину" меньше,
+    // чтобы перевод был короче и ничего не улетало.
+    const viewport = (window.innerWidth <= BP_COMPACT) ? (window.innerWidth - 48) : window.innerWidth;
+
+    const maxTranslate = track.scrollWidth - viewport;
+    track.style.transform = `translateX(-${currentPercentage * maxTranslate}px)`;
+  }
+  requestAnimationFrame(animateSlides);
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= BP_MOBILE) track.style.transform = 'none';
+});
+
+    // ===== Sticky горизонтальный скролл преимуществ =====
+    const stickySection = document.querySelector('.section-benefits-sticky');
+    const track = document.querySelector('.horizontal-track');
+
+    let targetPercentage = 0;
+    let currentPercentage = 0;
+    let globalScrollProgress = 0;
+    const easing = 0.08;
+
+    if (stickySection && track) {
+      window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 769) {
+          track.style.transform = 'none';
+          return;
+        }
+
+        const offsetTop = stickySection.offsetTop;
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const sectionHeight = stickySection.offsetHeight;
+
+        let rawPercentage = (scrollY - offsetTop) / (sectionHeight - windowHeight);
+        rawPercentage = Math.max(0, Math.min(1, rawPercentage));
+
+        const holdThreshold = 0.65;
+        targetPercentage = rawPercentage < holdThreshold
+          ? 0
+          : (rawPercentage - holdThreshold) / (1 - holdThreshold);
+
+        targetPercentage = Math.max(0, Math.min(1, targetPercentage));
+        globalScrollProgress = rawPercentage;
+      });
+
+      function animateSlides() {
+        if (window.innerWidth > 768) {
+          currentPercentage += (targetPercentage - currentPercentage) * easing;
+          const maxTranslate = track.scrollWidth - window.innerWidth;
+          track.style.transform = `translateX(-${currentPercentage * maxTranslate}px)`;
+        }
+        requestAnimationFrame(animateSlides);
+      }
+      animateSlides();
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth <= 769) track.style.transform = 'none';
+      });
+    }
+
+    // ===== Аудио-анализ для волн =====
+    let audioEnergy = 0;
+    let audioBass = 0;
+
+    const audioEl = document.getElementById('bgAudio');
+    const audioBtn = document.getElementById('audioToggle');
+
+    let audioCtx = null;
+    let analyser = null;
+    let dataArray = null;
+    let audioSource = null;
+    let audioRunning = false;
+
+    function setupAudioIfNeeded() {
+      if (!audioEl || audioCtx) return;
+
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 1024;
+
+      dataArray = new Uint8Array(analyser.frequencyBinCount);
+      audioSource = audioCtx.createMediaElementSource(audioEl);
+
+      audioSource.connect(analyser);
+      analyser.connect(audioCtx.destination);
+    }
+
+    function updateAudioAnalysis() {
+      if (!analyser || !dataArray) return;
+
+      analyser.getByteFrequencyData(dataArray);
+
+      let sum = 0;
+      for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+      const avg = (sum / dataArray.length) / 255;
+
+      const bassBins = Math.floor(dataArray.length * 0.10);
+      let bassSum = 0;
+      for (let i = 0; i < bassBins; i++) bassSum += dataArray[i];
+      const bassAvg = (bassSum / Math.max(1, bassBins)) / 255;
+
+      audioEnergy += (avg - audioEnergy) * 0.12;
+      audioBass += (bassAvg - audioBass) * 0.14;
+    }
+
+    async function toggleAudio() {
+      if (!audioEl || !audioBtn) return;
+
+      setupAudioIfNeeded();
+
+      if (audioCtx && audioCtx.state === 'suspended') {
+        await audioCtx.resume();
+      }
+
+      if (!audioRunning) {
+        await audioEl.play();
+        audioRunning = true;
+        audioBtn.classList.add('is-on');
+        audioBtn.textContent = 'звук: on';
+      } else {
+        audioEl.pause();
+        audioRunning = false;
+        audioBtn.classList.remove('is-on');
+        audioBtn.textContent = 'звук: off';
+      }
+    }
+
+    if (audioBtn) {
+      audioBtn.addEventListener('click', toggleAudio);
+    }
+
+    // ===== ВОЛНЫ =====
+    const canvas = document.getElementById('waveCanvas');
+
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+
+      let width = 0, height = 0;
+      let time = 0;
+
+      const gap = 34;
+      const stepX = 20;
+      let smoothWaveProgress = 0;
+
+      const mouse = { x: 0, y: 0, tx: 0, ty: 0, vx: 0, vy: 0, active: false };
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+      const palette = [
+        [197, 208, 230],
+        [186, 163, 255],
+        [120, 210, 255],
+        [80, 255, 190],
+        [255, 180, 120],
+      ];
+
+      function mix(a, b, t) {
+        return [
+          Math.round(a[0] + (b[0] - a[0]) * t),
+          Math.round(a[1] + (b[1] - a[1]) * t),
+          Math.round(a[2] + (b[2] - a[2]) * t),
+        ];
+      }
+
+      function paletteColor(t, wobble) {
+        const n = palette.length;
+        const x = (t * (n - 1) + wobble) % (n - 1);
+        const i = Math.floor(x);
+        const f = x - i;
+        const c = mix(palette[i], palette[i + 1], f);
+        return `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.55)`;
+      }
+
+      function setMouseFromEvent(e) {
+        const rect = canvas.getBoundingClientRect();
+        const inside =
+          e.clientX >= rect.left && e.clientX <= rect.right &&
+          e.clientY >= rect.top && e.clientY <= rect.bottom;
+
+        mouse.active = inside;
+
+        if (inside) {
+          mouse.tx = e.clientX - rect.left;
+          mouse.ty = e.clientY - rect.top;
+        }
+      }
+
+      window.addEventListener('mousemove', setMouseFromEvent);
+      window.addEventListener('mouseleave', () => { mouse.active = false; });
+
+      function draw() {
+        smoothWaveProgress += (globalScrollProgress - smoothWaveProgress) * easing;
+        updateAudioAnalysis();
+
+        const prevX = mouse.x, prevY = mouse.y;
+        mouse.x = lerp(mouse.x, mouse.tx, 0.10);
+        mouse.y = lerp(mouse.y, mouse.ty, 0.10);
+        mouse.vx = lerp(mouse.vx, mouse.x - prevX, 0.2);
+        mouse.vy = lerp(mouse.vy, mouse.y - prevY, 0.2);
+
+        const p = smoothWaveProgress;
+
+        const audioBoost = audioEnergy * 18 + audioBass * 28;
+        const baseAmplitude = 14 + p * 18 + audioBoost;
+        const baseSpeed = 0.006 + p * 0.010;
+
+        const mouseSpeed = clamp(Math.hypot(mouse.vx, mouse.vy) * 10, 0, 1);
+        const influenceRadius = 240;
+        const influencePower = 22 + mouseSpeed * 28;
+
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, width, height);
+        ctx.lineWidth = 2;
+
+        const wobble = (Math.sin(time * 0.35) + 1) * 0.35;
+
+        for (let y = 0; y < height; y += gap) {
+          const tRow = y / Math.max(1, height);
+          ctx.strokeStyle = paletteColor(tRow, wobble);
+
+          ctx.beginPath();
+
+          for (let x = 0; x < width; x += stepX) {
+            const wave1 = Math.sin(x * 0.006 + time + y * 0.010) * baseAmplitude;
+            const wave2 = Math.cos(x * 0.010 - time * 0.7 + y * 0.004) * (baseAmplitude * 0.45);
+
+            let bump = 0;
+            if (mouse.active) {
+              const dx = x - mouse.x;
+              const dy = y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              const k = clamp(1 - dist / influenceRadius, 0, 1);
+              const falloff = k * k;
+              bump = Math.sin(dist * 0.030 - time * 2.4) * (falloff * influencePower);
+            }
+
+            const yy = y + wave1 + wave2 + bump;
+            if (x === 0) ctx.moveTo(x, yy);
+            else ctx.lineTo(x, yy);
+          }
+
+          ctx.stroke();
+        }
+
+        time += baseSpeed;
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      draw();
+    }
+
+    // ===== Кураторы =====
+    const curators = [
+      { name: 'Брайан Ино', desc: 'Британский композитор, считается одним из основателей жанра эмбиент.', photo: 'images/brian.png' },
+      { name: 'Ричард Д. Джеймс', desc: 'Также известен как Aphex Twin. Пионер IDM и экспериментальной электроники.', photo: 'images/aphex.png' },
+      { name: 'Канье Уэст', desc: 'Продюсер и рэпер, который превратил хип-хоп в экспериментальное искусство.', photo: 'images/kanye.png' },
+      { name: 'Скриптонит', desc: 'Казахстанский рэпер и продюсер, основатель лейбла Musica36.', photo: 'images/skryptonite.png' },
+    ];
+
+    let currentCuratorIndex = 0;
+
+    const curatorName = document.getElementById('curatorName');
+    const curatorDesc = document.getElementById('curatorDesc');
+    const curatorPhoto = document.getElementById('curatorPhoto');
+    const prevBtn = document.getElementById('curatorPrev');
+    const nextBtn = document.getElementById('curatorNext');
+    const curatorContent = document.querySelector('.curator-content');
+
+    function renderCurator() {
+      const curator = curators[currentCuratorIndex];
+      curatorName.textContent = curator.name;
+      curatorDesc.textContent = curator.desc;
+      curatorPhoto.style.backgroundImage = `url('${curator.photo}')`;
+    }
+
+    let animLock = false;
+
+    function animateSwap(nextIndex, direction) {
+      if (!curatorContent || animLock) return;
+      animLock = true;
+
+      const outClass = direction === 'next' ? 'is-out-left' : 'is-out-right';
+      const inClass = direction === 'next' ? 'is-in-right' : 'is-in-left';
+
+      curatorContent.classList.add(outClass);
+
+      setTimeout(() => {
+        currentCuratorIndex = nextIndex;
+        renderCurator();
+
+        curatorContent.classList.remove(outClass);
+        curatorContent.classList.add(inClass);
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            curatorContent.classList.remove(inClass);
+            setTimeout(() => { animLock = false; }, 280);
+          });
+        });
+      }, 260);
+    }
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        const nextIndex = (currentCuratorIndex - 1 + curators.length) % curators.length;
+        animateSwap(nextIndex, 'prev');
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const nextIndex = (currentCuratorIndex + 1) % curators.length;
+        animateSwap(nextIndex, 'next');
+      });
+
+      renderCurator();
+    }
+	  // === ВЕРСИЯ, КОТОРАЯ РАБОТАЕТ (БЕЗ ГРОМКОСТИ) ===
+{
+  const myAudioEl = document.getElementById('bgAudio');
+  const myTargetSection = document.querySelector('.section-benefits-sticky');
+  let myAudioUnlocked = false;
+
+  // Функция тихой разблокировки
+  function tryUnlock() {
+    if (myAudioUnlocked || !myAudioEl) return;
+    
+    const p = myAudioEl.play();
+    if (p !== undefined) {
+      p.then(() => {
+        myAudioEl.pause();
+        myAudioEl.currentTime = 0;
+        myAudioUnlocked = true;
+        ['click', 'touchstart', 'keydown', 'wheel'].forEach(evt => 
+          document.removeEventListener(evt, tryUnlock)
+        );
+      }).catch(() => {}); 
+    }
+  }
+
+  // Вешаем слушатели
+  ['click', 'touchstart', 'keydown', 'wheel'].forEach(evt => 
+    document.addEventListener(evt, tryUnlock, { passive: true, once: true })
+  );
+
+  // Наблюдатель
+  if (myTargetSection && myAudioEl) {
+    const audioObserver = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        if (myAudioUnlocked) {
+           myAudioEl.play().catch(e => console.log('Audio error:', e));
+        } else {
+           myAudioEl.play().then(() => { myAudioUnlocked = true; }).catch(() => {});
+        }
+      } else {
+        myAudioEl.pause();
+      }
+    }, { threshold: 0.25 });
+
+    audioObserver.observe(myTargetSection);
+  }
+}
+// === КОНЕЦ ===
+
+
+  </script>
+</body>
+</html>
+
+
